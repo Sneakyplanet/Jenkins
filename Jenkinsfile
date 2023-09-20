@@ -51,13 +51,15 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            mail to: 'pepsomo@gmail.com',
-                 subject: "Jenkins build ${currentBuild.currentResult}: Job ${env.JOB_NAME} Build ${env.BUILD_NUMBER}",
-                 body: "Check console output at ${env.BUILD_URL} to view the results."
-                 recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-                 attachLog: true
-        }
+post {
+    always {
+        emailext (
+            subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+            body: """<p>See attached log for details</p>""",
+            recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+            attachLog: true
+        )
     }
+}
+
 }
