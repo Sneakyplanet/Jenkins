@@ -50,14 +50,14 @@ pipeline {
             // Send failure email notification with logs as attachments
             emailext body: 'The pipeline has failed. Check the attached logs.',
                      subject: 'Pipeline Failure',
-                     to: 'pepsomo@gmail.com',
+                     to: 'sneakyplanet12@gmail.com',
                      attachLog: true
         }
         success {
             // Send success email notification with logs as attachments
             emailext body: 'The pipeline has succeeded. Check the attached logs.',
                      subject: 'Pipeline Success',
-                     to: 'pepsomo@gmail.com',
+                     to: 'sneakyplanet12@gmail.com',
                      attachLog: true
         }
     }
