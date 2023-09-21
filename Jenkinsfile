@@ -10,8 +10,8 @@ pipeline {
         stage('Unit and Integration Tests') {
             steps {
                 // Use your preferred test automation tools
-                echo 'run_unit_tests.sh'
-                echo 'run_integration_tests.sh'
+                echo 'run_unit_tests'
+                echo 'run_integration_tests'
             }
         }
         stage('Code Analysis') {
@@ -23,25 +23,25 @@ pipeline {
         stage('Security Scan') {
             steps {
                 // Integrate a security scanning tool (e.g., OWASP ZAP)
-                echo 'owasp-zap-scan.sh'
+                echo 'owasp-zap-scan'
             }
         }
         stage('Deploy to Staging') {
             steps {
                 // Deploy to your staging environment (e.g., AWS EC2)
-                echo 'deploy_to_staging.sh'
+                echo 'deploy_to_staging'
             }
         }
         stage('Integration Tests on Staging') {
             steps {
                 // Run integration tests on staging
-                echo 'run_integration_tests_staging.sh'
+                echo 'run_integration_tests_staging'
             }
         }
         stage('Deploy to Production') {
             steps {
                 // Deploy to production environment (e.g., AWS EC2)
-                echo 'deploy_to_production.sh'
+                echo 'deploy_to_production'
             }
         }
     }
