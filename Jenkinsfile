@@ -45,20 +45,18 @@ pipeline {
             }
         }
     }
-    post {
-        failure {
-            // Send failure email notification with logs as attachments
-            emailext body: 'The pipeline has failed. Check the attached logs.',
-                     subject: 'Pipeline Failure',
-                     to: 'sneakyplanet12@gmail.com',
-                     attachLog: true
+            post {
+                success {
+                    emailext(attachLog: true, 
+                    to: "sneakyplanet12@gmail.com", 
+                    subject: 'Unit and Integration Tests - Success', 
+                    body: "Testing bod")      
+                }
+                failure {
+                    emailext(attachLog: true, 
+                    to: "sneakyplanet12@gmail.com", 
+                    subject: 'Unit and Integration Tests - Failed', 
+                    body: "Testing body")      
+                }
+            }
         }
-        success {
-            // Send success email notification with logs as attachments
-            emailext body: 'The pipeline has succeeded. Check the attached logs.',
-                     subject: 'Pipeline Success',
-                     to: 'sneakyplanet12@gmail.com',
-                     attachLog: true
-        }
-    }
-}
