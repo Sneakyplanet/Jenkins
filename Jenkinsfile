@@ -50,7 +50,7 @@ pipeline {
                     emailext(attachLog: true, 
                     to: "sneakyplanet12@gmail.com", 
                     subject: 'Unit and Integration Tests - Success', 
-                    body: "Testing bod")      
+                    body: "Testing body")      
                 }
                 failure {
                     emailext(attachLog: true, 
